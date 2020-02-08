@@ -1,0 +1,19 @@
+[R:start_node:Greeting]
+
+[V:start]Hello, Do you need recommendations for gifts?
+[O] Yes
+[O] No
+
+[C:ready]start=Yes
+[C:bye]start=No
+
+[Q:ready] Sure, glad to help.
+
+[V:gender] What's the gender of the person that will be given the gift?
+[O] Male
+[O] Female
+
+[C:bye] gender=Male
+[C:bye] gender=Female
+
+[Q:bye]Thanks for shopping with sherket el soudia
