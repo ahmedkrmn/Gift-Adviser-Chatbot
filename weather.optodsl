@@ -1,0 +1,18 @@
+[R:weather_node:weather]
+[V:location_var:location:timeseries_in_cache]
+ which city ?
+#[F:fetched_weather_var] http://api.weatherstack.com/current?access_key=8da14f08dc9fe885d86c975fa1620d15&query={{location_var}},get,current.temperature,
+[F:fetched_weather_var] weather,location_var
+[V:temp_var](response) the weather today in {{location_var}} is {{fetched_weather_var}} °C
+(response) Is there anything else I can help you with today ?
+[O]yes
+[O]no
+[C:help] location_var & fetched_weather_var & temp_var=yes
+[C:bye] temp_var=no
+[C:not_a_city] fetched_weather_var=error
+
+[Q:not_a_city] please enter a valid country/city name
+[C:weather_node] location_var
+
+[Q:bye] It was a great talking to you today , Have a nice day
+[Q:help] How can I help you ?
